@@ -46,11 +46,11 @@ public class ContactService {
 
     public List<ContactDTO> listarContatos(String search, String userId) {
         if (search == null || search.isEmpty()) {
-            return contactRepository.findByUserId(userId).stream()
+            return contactRepository.findByUserIdOrderByNomeAsc(userId).stream()
                     .map(this::convertToDTO)
                     .collect(Collectors.toList());
         } else {
-            return contactRepository.findByUserIdAndNomeContainingIgnoreCase(userId, search).stream()
+            return contactRepository.findByUserIdAndNomeContainingIgnoreCaseOrderByNomeAsc(userId, search).stream()
                     .map(this::convertToDTO)
                     .collect(Collectors.toList());
         }

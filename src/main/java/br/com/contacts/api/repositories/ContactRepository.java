@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface ContactRepository extends JpaRepository<Contact, String> {
     Optional<Contact> findByCelular(String celular);
 
-    List<Contact> findByUserId(String userId);
-    List<Contact> findByUserIdAndNomeContainingIgnoreCase(String userId, String nome);  
+    List<Contact> findByUserIdOrderByNomeAsc(String userId);
+    List<Contact> findByUserIdAndNomeContainingIgnoreCaseOrderByNomeAsc(String userId, String nome);
 }
 

@@ -49,7 +49,7 @@ public class ContactController {
         return ResponseEntity.ok(contatos);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<?> atualizarContato(@PathVariable String id,
             @RequestBody @Valid ContactUpdateDTO contactUpdateDTO) {
         try {
